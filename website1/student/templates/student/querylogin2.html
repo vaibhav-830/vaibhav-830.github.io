@@ -1,0 +1,81 @@
+{% extends 'student/base.html' %}
+{% block title %}Student Home {% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu Hover Effect</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'student/querylogin2.css' %}" />
+</head>
+<body>
+	<div class="navbar">
+	<a href="{% url 'student:complain' %}">Query</a>
+	<div class="dropdown">
+    <button class="dropbtn">New User
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:staffregistration' %}">Staff Registration</a>
+      <a href="{% url 'student:studentregistration' %}">Student Registration</a>
+	</div>
+	</div>
+	<div class="dropdown">
+    <button class="dropbtn">Login
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:stafflogin' %}">Staff Login</a>
+      <a href="{% url 'student:studentlogin' %}">Student Login</a>
+	</div>
+	</div>
+	    <a href="#news">Contact us</a>
+		<a href="#news">About</a>
+		<a href="{% url 'student:backindex' %}">Home</a>
+
+
+    </div>
+    {{ msg }}
+
+    <br><br><br><br>
+   <div class="login-card">
+<div class="log_head">
+<h1>Student LOGIN</h1>
+<img src="{% static 'student/images/lock.png' %}" alt="lock" class="lock" />
+</div>
+
+<div class="log_body">
+<form action="{% url 'student:query2' %}" method="POST">
+ <table width="200" border="0" align="center">
+  <tr>
+    <td><input placeholder="Please Enter Your Student Id" type="text" name="loginid" class="log_user" ></td>
+  </tr>
+     {% csrf_token %}
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input placeholder="Please Enter Your Password" type="password" name="pass" class="log_Pass"></td>
+  </tr>
+
+
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input type="submit"  class="login-submit" value="SIGN IN"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Don't have an account ? <a href="{% url 'student:studentregistration' %}" rel="{% url 'student:studentregistration' %}">Sign Up</a></td>
+  </tr>
+</table>
+</form>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

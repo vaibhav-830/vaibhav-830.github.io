@@ -1,0 +1,83 @@
+{% extends 'student/base.html' %}
+{% block title %}Student Home {% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'student/query.css' %}" />
+
+</head>
+<body>
+	<div class="navbar">
+	<a href="{% url 'student:complain' %}">Query</a>
+	<div class="dropdown">
+    <button class="dropbtn">New User
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:staffregistration' %}">Staff Registration</a>
+      <a href="{% url 'student:studentregistration' %}">Student Registration</a>
+	</div>
+	</div>
+	<div class="dropdown">
+    <button class="dropbtn">Login
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:stafflogin' %}">Staff Login</a>
+      <a href="{% url 'student:studentlogin' %}">Student Login</a>
+	</div>
+	</div>
+	    <a href="#news">Contact us</a>
+		<a href="#news">About</a>
+		<a href="{% url 'student:backindex' %}">Home</a>
+</div>
+</body>
+<body>
+<br><br><br><br><br><br><br><br><br><br>
+
+{{ student.id }} {{ student.name }}
+ <div class="contact-form">
+     <form action="{% url 'student:studenttoken' student.id %}" method="POST">
+         {% csrf_token %}
+    <h1>Query Registration Form</h1>
+    <div class="txtb">
+      <label>Full Name :</label>
+      <input type="text" name="name" value="" placeholder="Enter Your Name">
+    </div>
+
+    <div class="txtb">
+      <label>Email :</label>
+      <input type="email" name="email" value="" placeholder="Enter Your Email">
+    </div>
+
+    <div class="dropdown">
+      <label for="query category">Query Category:</label>
+      <select  name="category" id="query category" >
+        <option value="-1" selected></option>
+        <option>Examination</option>
+        <option>Scholarship</option>
+        <option>Fees</option>
+        <option>Marksheet</option>
+        <option>ID Card</option>
+        <option>Ragging</option>
+        <option>Harrashment</option>
+        <option>Teaching</option>
+        <option>Lab</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="txtb">
+      <label>Query Description :</label>
+        <textarea name="description"></textarea>
+    </div>
+     <input type="submit" value="submit">
+  </div>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'student/base.html' %}
+{% block title %}Student Home {% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu Hover Effect</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'student/style.css' %}" />
+</head>
+<body bg bgcolor="sky blue">
+<div class="navbar">
+	<a href="{% url 'student:complain' %}">Query</a>
+	<div class="dropdown">
+    <button class="dropbtn">New User
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:staffregistration' %}">Staff Registration</a>
+      <a href="{% url 'student:studentregistration' %}">Student Registration</a>
+	</div>
+	</div>
+	<div class="dropdown">
+    <button class="dropbtn">Login
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:stafflogin' %}">Staff Login</a>
+      <a href="{% url 'student:studentlogin' %}">Student Login</a>
+	</div>
+	</div>
+	    <a href="#">Contact us</a>
+		<a href="#">About</a>
+		<a href="{% url 'student:backindex' %}">Home</a>
+
+
+    </div>
+<br><br><br><br>
+{% if msg %}
+	<div class="image">
+	<center>
+	<a href="{% url 'student:querylogin' %}"><img src="{% static 'student/images/teacher.png' %}" alt="lock" class="lock" width="100px" height="100px"/></a>
+	<a href="{% url 'student:querylogin2' %}"><img src="{% static 'student/images/student.jpg' %}" alt="lock" class="lock" width="100px" height="100px" /></a>
+	</center>
+	</div>
+	{% endif %}
+	<div class="title">
+    </div>
+<h1><center><font size=7><b><br><br>"Education is the most powerful weapon which <br>you can use to change the world."</b></font></center></H1></body>
+</html>
+{% endblock %}

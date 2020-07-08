@@ -1,0 +1,190 @@
+{% extends 'student/base.html' %}
+{% block title %}Student Home {% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu Hover Effect</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'student/register.css' %}" />
+</head>
+<body>
+	<div class="navbar">
+	<a href="{% url 'student:staffquery' %}">Query</a>
+	<div class="dropdown">
+    <button class="dropbtn">New User
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:staffregistration' %}">Staff Registration</a>
+      <a href="{% url 'student:studentregistration' %}">Student Registration</a>
+	</div>
+	</div>
+	<div class="dropdown">
+    <button class="dropbtn">Login
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="{% url 'student:stafflogin' %}">Staff Login</a>
+      <a href="{% url 'student:studentlogin' %}">Student Login</a>
+	</div>
+	</div>
+	    <a href="#news">Contact us</a>
+		<a href="#news">About</a>
+		<a href="{% url 'student:backindex' %}">Home</a>
+
+
+    </div>
+
+<br><br><br>
+
+{{ msg }}
+<table cellpadding="2" width="40%" bgcolor="lightgreen" align="center"
+cellspacing="2">
+
+<form action="{% url 'student:signupstaff' %}" method="post">
+{% csrf_token %}
+<tr>
+<td colspan=2>
+<center><font size=7><b>Staff  Registration Form</b></font></center>
+</td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<tr>
+<td>Name:</td>
+<td><input type="text" name="name" id="textname" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<tr>
+<td>Staff-Id:</td>
+<td><input type="text" name="staffid" id="staffid" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+<tr>
+<td>Password:</td>
+<td><input type="text" name="password" id="password" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<tr>
+<td>Faculty:</td>
+<td><select name="faculty" width="46">
+<option value="-1" selected>select..</option>
+<option value="Faculty of Agriculture">Faculty of Agriculture</option>
+<option value="Faculty of Faculty of Engineering and Technology">Faculty of Faculty of Engineering and Technology</option>
+<option value="Faculty of Science">Faculty of Science</option>
+<option value="Faculty of Theology">Faculty of Theology</option>
+<option value="Faculty of Management, Humanities and Social Sciences">Faculty of Management, Humanities and Social Sciences</option>
+<option value="Faculty of Health Sciences">Faculty of Health Sciences</option>
+</select></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<tr>
+<td>College:</td>
+<td><select name="college" width="46">
+<option value="-1" selected>select..</option>
+<option value="nai">Naini Agriculture Institute(NAI)</option>
+<option value="echs">Ethelind Collage of Home Science(ECHS)</option>
+<option value="mscne">Makino school of Continuing and Non-Formal Education(MSCNE)</option>
+<option value="cf">College of Forestry(CF)</option>
+<option value="Jacob Institute of Biotechnology and Bio-Engineering(JIBB)">Jacob Institute of Biotechnology and Bio-Engineering(JIBB)</option>
+<option value="viaet">Vaugh Institute of Agricultute Engineering and Technology(VIAET)</option>
+<option value="wcdt">Warner Collage of Dairy Technology(WCDT)</option>
+<option value="gpit">Gospel and Plough Institute of Theology(GPIT)</option>
+<option value="dats">Department of Advanced Theological Studies(DATS)</option>
+<option value="ydbs">Yeshu Darbar Bible School(YDBS)</option>
+<option value="jsbsc">Joseph School of Business Studies and Commerce(JSBSC)</option>
+<option value="cshss">Chitamber School of Humanities and Social Sciences(CSHSS)</option>
+<option value="ase">Allahabad School of Education(ASE)</option>
+<option value="sfmc">School of Film and Mass Communication(SFMC)</option>
+<option value="sihas">Shalmon Institute of Health and Allied Sciences(SIHAS)</option>
+</select></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<tr>
+<td>Department:</td>
+<td><input type="text" name="department"
+id="department" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+
+
+<tr>
+<td>EmailId</td>
+<td><input type="text" name="emailid" id="emailid" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+<tr>
+<td>DOB</td>
+<td><input type="text" name="dob" id="dob" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+<tr>
+<td>MobileNo</td>
+<td><input type="text" name="mobileno" id="mobileno" size="46"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+<tr>
+<td>Photo upload</td>
+<td><input  name="image" type="file" placeholder="Upload Image"></td>
+</tr>
+<tr>
+<tr>
+<tr>
+<tr>
+<tr>
+
+
+<td><input type="reset"></td>
+<td colspan="2"><input type="submit" value="Submit Form" /></td>
+</tr>
+</form>
+</table>
+</body>
+</html>
+{% endblock %}
